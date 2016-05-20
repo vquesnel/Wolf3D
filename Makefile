@@ -6,13 +6,13 @@
 #    By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/26 13:35:37 by vquesnel          #+#    #+#              #
-#    Updated: 2016/05/18 13:59:19 by vquesnel         ###   ########.fr        #
+#    Updated: 2016/05/20 12:42:28 by vquesnel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME= wolf3d
 
-SRCS= srcs/
+SRCS= srcs/main.c srcs/get_map.c srcs/init_node.c
 
 OBJS= $(SRCS:.c=.o)
 INCLUDES= -I libft/includes -I includes -I mlx/
@@ -57,10 +57,11 @@ fclean:	clean
 
 re:		fclean all
 
-norme:
+norme: fclean
 	@norminette srcs/
 	@norminette includes/
 	@norminette libft/
+	@make re
 
 
 .PHONY: all clean fclean re
