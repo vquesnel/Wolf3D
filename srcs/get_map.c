@@ -6,33 +6,32 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 14:38:46 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/20 12:41:22 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/23 14:33:16 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf.h"
-
-static t_node	*convert_map(t_node *list, char *line)
+/*
+static char	**convert_map(t_env *env, char *line)
 {
-	int			x;
-	char		**map;
-	static int	y;
-	t_node		*elem;
+	int			y;
+	char		**split;
+	static int	x;
 
-	x = 0;
-	map = ft_strsplit(line, ' ');
-	while (map[x])
+	y = 0;
+	split = ft_strsplit(line, ' ');
+	while (split[y])
 	{
-		elem = init_node();
-		elem->x = x;
-		elem->y = y;
-		elem->z = ft_atoi(map[x]);
-		list = insert_node(list, elem);
-		x++;
+		printf("split[y] = %s\n", split[y]);
+		env->map[x][y] = *split[y];
+		printf("coucu\n");
+		y++;
 	}
-	y++;
-	free(map);
-	return (list);
+	x++;
+	env->x_max = x;
+	env->y_max = y;
+	free(split);
+	return (env->map);
 }
 
 static void		check_line(char *line)
@@ -44,7 +43,7 @@ static void		check_line(char *line)
 		ft_error("\033[31;1mBorder's error.\033[0m");
 	while (line[i])
 	{
-		if (line[i] == ' ' || line[i] == '1' || line[i] == '0')
+		if (line[i] == ' ' || line[i] >= '0' || line[i] <= '9')
 			i++;
 		else
 			ft_error("\033[31;1mMap must be made of 1 and 0.\033[0m");
@@ -65,18 +64,18 @@ static void		check_border(char *line)
 	}
 }
 
-t_node			*get_map(int fd)
+char		**get_map(int fd, t_env *env)
 {
 	char		*line;
-	t_node		*new;
+	char		**map;
 	static int	x;
 
-	new = NULL;
 	if (get_next_line(fd, &line))
 	{
 		check_border(line);
 		x = ft_tablen(ft_strsplit(line, ' '));
-		new = convert_map(new, line);
+		map = (char **)malloc(sizeof(char *) * 100000);
+		map = convert_map(env, line);
 	}
 	else
 		ft_error("\033[31;1mError when reading the file.\033[0m");
@@ -85,8 +84,8 @@ t_node			*get_map(int fd)
 		check_line(line);
 		if (ft_tablen(ft_strsplit(line, ' ')) != x)
 			ft_error("\033[31;1mMap isn't a square.\033[0m");
-		new = convert_map(new, line);
+		map = convert_map(env, line);
 	}
 	check_border(line);
-	return (new);
-}
+	return (map);
+}*/
