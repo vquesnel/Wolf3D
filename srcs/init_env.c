@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 15:03:50 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/24 16:36:10 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/24 20:32:36 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ t_env	*init_env(int fd)
 	env->oldtime = env->time;
 	env->time = clock();
 	env->fps = (env->time - env->oldtime) / 1000.0;
+	printf("%f\n", env->fps);
 	env->movespeed = env->fps * 5.0;
-	env->rotspeed = env->fps * 3.0;
+	env->rotspeed = env->fps * 5.0;
 	return (env);
 }

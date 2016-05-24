@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 15:34:51 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/24 13:23:01 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/24 20:15:01 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,8 @@ int		searchinlist(int x, int y, t_env *env)
 		tmp = tmp->next;
 	while (tmp->x != x)
 		tmp = tmp->next;
-	return (tmp->z);
+	if (!tmp)
+		return (0);
+	else
+		return (tmp->z);
 }
