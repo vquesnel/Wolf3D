@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/20 12:14:33 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/24 20:24:14 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/24 21:24:58 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,14 @@ typedef struct		s_env
 	double	cam_x;
 	int		mapx;
 	int		mapy;
-	double	rayposx;
-	double	rayposy;
+	double	rposx;
+	double	rposy;
 	double	raydirx;
 	double	raydiry;
 	double	sidedistx;
 	double	sidedisty;
-	double	deltadistx;
-	double	deltadisty;
+	double	deltx;
+	double	delty;
 	double	perpwalldist;
 	int		stepx;
 	int		stepy;

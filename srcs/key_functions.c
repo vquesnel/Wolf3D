@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/24 14:20:21 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/24 20:21:47 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/24 21:15:00 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 
 void	moove_forward(t_env *env)
 {
-	printf("z = %d\n", searchinlist((int)(env->posx + env->dirx), (int)env->posy, env));
 	if (searchinlist((int)(env->posx + env->dirx), (int)env->posy, env) == 0 &&
 	searchinlist((int)env->posx, (int)(env->posy + env->diry), env) == 0)
 	{
-		env->posx += env->dirx;
-		env->posy += env->diry;
+		env->posx += env->dirx * env->movespeed;
+		env->posy += env->diry * env->movespeed;
 	}
 	else
 		ft_putstr("\a");

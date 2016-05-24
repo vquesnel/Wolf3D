@@ -6,42 +6,43 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/23 12:34:24 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/24 16:37:30 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/24 21:24:56 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf.h"
+
 static void	init_param(t_env *env, int x)
 {
 		env->cam_x = 2 * x / (double)X_SIZE - 1;
-		env->rayposx = env->posx;
-		env->rayposy = env->posy;
+		env->rposx = env->posx;
+		env->rposy = env->posy;
 		env->raydirx = env->dirx + env->planex * env->cam_x;
 		env->raydiry = env->diry + env->planey * env->cam_x;
-		env->mapx = (int)env->rayposx;
-		env->mapy = (int)env->rayposy;
-		env->deltadistx = sqrt(1 + pow(env->raydiry, 2) / pow(env->raydirx, 2));
-		env->deltadisty = sqrt(1 + pow(env->raydirx, 2) / pow(env->raydiry, 2));
+		env->mapx = (int)env->rposx;
+		env->mapy = (int)env->rposy;
+		env->deltx = sqrt(1 + pow(env->raydiry, 2) / pow(env->raydirx, 2));
+		env->delty = sqrt(1 + pow(env->raydirx, 2) / pow(env->raydiry, 2));
 		env->hit = 0;
 		if (env->raydirx < 0)
 		{
 			env->stepx = -1;
-			env->sidedistx = (env->rayposx - (int)env->rayposx) * env->deltadistx;
+			env->sidedistx = (env->rposx - (int)env->rposx) * env->deltx;
 		}
 		else
 		{
 			env->stepx = 1;
-			env->sidedistx = (env->mapx + 1.0 - env->rayposx) * env->deltadistx;
+			env->sidedistx = (env->mapx + 1.0 - env->rposx) * env->deltx;
 		}
 		if (env->raydiry < 0)
 		{
 			env->stepy = -1;
-			env->sidedisty = (env->rayposy - env->mapy) * env->deltadisty;
+			env->sidedisty = (env->rposy - env->mapy) * env->delty;
 		}
 		else
 		{
 			env->stepy = 1;
-			env->sidedisty = (env->mapy + 1.0 - env->rayposy) * env->deltadisty;
+			env->sidedisty = (env->mapy + 1.0 - env->rposy) * env->delty;
 		}
 }
 
@@ -80,13 +81,13 @@ void	ray_cast(t_env *env)
 		{
 			if (env->sidedistx < env->sidedisty)
 			{
-				env->sidedistx += env->deltadistx;
+				env->sidedistx += env->deltx;
 				env->mapx += env->stepx;
 				env->side = 0;
 			}
 			else
 			{
-				env->sidedisty += env->deltadisty;
+				env->sidedisty += env->delty;
 				env->mapy += env->stepy;
 				env->side = 1;
 			}
@@ -94,20 +95,11 @@ void	ray_cast(t_env *env)
 				env->hit = 1;
 		}
 		if (env->side == 0)
-			env->perpwalldist = (env->mapx - env->rayposx + (1 - env->stepx) / 2) / env->raydirx;
+			env->perpwalldist = (env->mapx - env->rposx + (1 - env->stepx) / 2) / env->raydirx;
 		else
-			env->perpwalldist = (env->mapy - env->rayposy + (1 - env->stepy) / 2) / env->raydiry;
+			env->perpwalldist = (env->mapy - env->rposy + (1 - env->stepy) / 2) / env->raydiry;
 		select_color(env);
 		draw_vertical(x, env);
 		x++;
 	}
-}
-
-void	expose(t_env *env)
-{
-	mlx_clear_window(env->mlx, env->win);
-	ray_cast(env);
-	mlx_put_image_to_window(env->mlx, env->win, env->img->img, 0, 0);
-	mlx_hook(env->win, 2, 3, key_funct, env);
-	mlx_loop(env->mlx);
 }

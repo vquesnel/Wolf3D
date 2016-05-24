@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/24 14:29:30 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/24 20:30:02 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/24 21:20:44 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,20 @@ int		key_funct(int keycode, t_env *env)
 	env->img = init_img(env);
 	expose(env);
 	return (0);
+}
+
+static int	close_win(t_env *e)
+{
+	free(e);
+	exit(EXIT_SUCCESS);
+}
+
+void	expose(t_env *env)
+{
+	mlx_clear_window(env->mlx, env->win);
+	ray_cast(env);
+	mlx_put_image_to_window(env->mlx, env->win, env->img->img, 0, 0);
+	mlx_hook(env->win, 2, 3, key_funct, env);
+	mlx_hook(env->win, 17, 1L << 17, close_win, env);
+	mlx_loop(env->mlx);
 }
