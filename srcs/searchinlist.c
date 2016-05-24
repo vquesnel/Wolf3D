@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_one_line.c                                    :+:      :+:    :+:   */
+/*   searchinlist.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/26 15:24:14 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/24 16:33:28 by vquesnel         ###   ########.fr       */
+/*   Created: 2016/04/26 15:34:51 by vquesnel          #+#    #+#             */
+/*   Updated: 2016/05/24 13:23:01 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf.h"
 
-void			draw_vertical(int x, t_env *env)
+int		searchinlist(int x, int y, t_env *env)
 {
-	if (env->drawstart < env->drawend)
-	{
-		while (env->drawstart <= env->drawend)
-		{
-			pixel_to_image(env,x, env->drawstart, env->color);
-			env->drawstart++;
-		}
-	}
-	else
-	{
-		while (env->drawstart >= env->drawend)
-		{
-			pixel_to_image(env, x, env->drawstart, env->color);
-			env->drawstart--;
-		}
-	}
+	t_node	*tmp;
+
+	tmp = env->map;
+	while (tmp->y != y)
+		tmp = tmp->next;
+	while (tmp->x != x)
+		tmp = tmp->next;
+	return (tmp->z);
 }

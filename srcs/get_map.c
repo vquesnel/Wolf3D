@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_map.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/26 14:38:46 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/23 14:33:16 by vquesnel         ###   ########.fr       */
+/*   get_map.c                                          ::      ::    ::   */
+/*                                                    : :         :     */
+/*   By: vquesnel <vquesnel@student.42.fr>          #  :       #        */
+/*                                                #####   #           */
+/*   Created: 2016/04/26 14:38:46 by vquesnel          ##    ##             */
+/*   Updated: 2016/05/24 12:46:06 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf.h"
-/*
-static char	**convert_map(t_env *env, char *line)
-{
-	int			y;
-	char		**split;
-	static int	x;
 
-	y = 0;
-	split = ft_strsplit(line, ' ');
-	while (split[y])
+static t_node	*convert_map(t_node *list, t_env *env, char *line)
+{
+	int			x;
+	char		**map;
+	static int	y;
+	t_node		*elem;
+
+	x = 0;
+	map = ft_strsplit(line, ' ');
+	while (map[x])
 	{
-		printf("split[y] = %s\n", split[y]);
-		env->map[x][y] = *split[y];
-		printf("coucu\n");
-		y++;
+		elem = init_node();
+		elem->x = x;
+		elem->y = y;
+		elem->z = ft_atoi(map[x]);
+		list = insert_node(list, elem);
+		x++;
 	}
-	x++;
+	y++;
 	env->x_max = x;
 	env->y_max = y;
-	free(split);
-	return (env->map);
+	free(map);
+	return (list);
 }
 
 static void		check_line(char *line)
@@ -39,14 +42,14 @@ static void		check_line(char *line)
 	long	i;
 
 	i = 0;
-	if (line[0] != '1' || line[ft_strlen(line) - 1] != '1')
+	if (line[0] == '0' || line[ft_strlen(line) - 1] == '0')
 		ft_error("\033[31;1mBorder's error.\033[0m");
 	while (line[i])
 	{
-		if (line[i] == ' ' || line[i] >= '0' || line[i] <= '9')
+		if (line[i] == ' ' || (line[i] >= '0' && line[i] <= '9'))
 			i++;
 		else
-			ft_error("\033[31;1mMap must be made of 1 and 0.\033[0m");
+			ft_error("\033[31;1mMap must be made of numbers.\033[0m");
 	}
 }
 
@@ -57,25 +60,25 @@ static void		check_border(char *line)
 	i = 0;
 	while (line[i])
 	{
-		if (line[i] == ' ' || line[i] == '1')
+		if (line[i] == ' ' || (line[i] >= '1' && line[i] <= '9'))
 			i++;
 		else
-			ft_error("\033[31;1mBorder's error.\033[0m");
+			ft_error("\033[31;1mBorder's error!\033[0m");
 	}
 }
 
-char		**get_map(int fd, t_env *env)
+t_node			*get_map(int fd, t_env *env)
 {
 	char		*line;
-	char		**map;
+	t_node		*new;
 	static int	x;
 
+	new = NULL;
 	if (get_next_line(fd, &line))
 	{
 		check_border(line);
 		x = ft_tablen(ft_strsplit(line, ' '));
-		map = (char **)malloc(sizeof(char *) * 100000);
-		map = convert_map(env, line);
+		new = convert_map(new, env, line);
 	}
 	else
 		ft_error("\033[31;1mError when reading the file.\033[0m");
@@ -84,8 +87,8 @@ char		**get_map(int fd, t_env *env)
 		check_line(line);
 		if (ft_tablen(ft_strsplit(line, ' ')) != x)
 			ft_error("\033[31;1mMap isn't a square.\033[0m");
-		map = convert_map(env, line);
+		new = convert_map(new, env, line);
 	}
 	check_border(line);
-	return (map);
-}*/
+	return (new);
+}

@@ -6,12 +6,12 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/20 12:14:33 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/23 15:25:37 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/24 16:32:18 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCT_H
-# define STRUCT_H
+#ifndef stRUCt_h
+# define stRUCt_h
 
 typedef struct		s_node
 {
@@ -35,37 +35,40 @@ typedef struct		s_env
 	char	*name;
 	void	*mlx;
 	void	*win;
-	int		**map;
+	t_node	*map;
 	int		x_max;
 	int		y_max;
-	double	posX;
-	double	posY;
-	double	dirX;
-	double	dirY;
-	double	planeX;
-	double	planeY;
-	double	time;
-	double	oldTime;
-	double	cam_X;
-	int		mapX;
-	int		mapY;
-	double	rayPosX;
-	double	rayPosY;
-	double	rayDirX;
-	double	rayDirY;
-	double	sideDistX;
-	double	sideDistY;
-	double	deltaDistX;
-	double	deltaDistY;
-	double	perpWallDist;
-	int		stepX;
-	int		stepY;
+	double	posx;
+	double	posy;
+	double	dirx;
+	double	diry;
+	double	planex;
+	double	planey;
+	clock_t	time;
+	clock_t	oldtime;
+	int		fps;
+	double	cam_x;
+	int		mapx;
+	int		mapy;
+	double	rayposx;
+	double	rayposy;
+	double	raydirx;
+	double	raydiry;
+	double	sidedistx;
+	double	sidedisty;
+	double	deltadistx;
+	double	deltadisty;
+	double	perpwalldist;
+	int		stepx;
+	int		stepy;
 	int		hit;
 	int		side;
-	int		lineHeight;
-	int		drawStart;
-	int		drawEnd;
+	int		lineheight;
+	int		drawstart;
+	int		drawend;
 	int		color;
+	double	movespeed;
+	double	rotspeed;
 	t_img	*img;
 }					t_env;
 
