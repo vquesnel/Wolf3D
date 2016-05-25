@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/20 12:11:39 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/25 12:33:58 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/25 12:54:29 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int		key_funct(int keycode, t_env *env);
 void	moove_forward(t_env *env);
 void	moove_backwards(t_env *env);
 void	rotate_right(t_env *env);
+void	moove_right(t_env *env);
+void	moove_left(t_env *env);
 void	rotate_left(t_env *env);
 void	expose(t_env *env);
 
