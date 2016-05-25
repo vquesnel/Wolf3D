@@ -6,15 +6,15 @@
 #    By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/26 13:35:37 by vquesnel          #+#    #+#              #
-#    Updated: 2016/05/24 14:33:00 by vquesnel         ###   ########.fr        #
+#    Updated: 2016/05/25 12:08:11 by vquesnel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME= wolf3d
 
-SRCS= srcs/main.c srcs/get_map.c srcs/init_node.c srcs/init_env.c srcs/init_img.c\
-	  srcs/begin.c srcs/draw_one_line.c srcs/searchinlist.c srcs/key_hook.c \
-	  srcs/key_functions.c
+SRCS= srcs/main.c srcs/get_map.c srcs/init_node.c srcs/init_env.c\
+	  srcs/init_img.c srcs/ray_casting.c srcs/draw_one_line.c\
+	  srcs/searchinlist.c srcs/key_hook.c srcs/key_functions.c
 
 OBJS= $(SRCS:.c=.o)
 INCLUDES= -I libft/includes -I includes -I mlx/

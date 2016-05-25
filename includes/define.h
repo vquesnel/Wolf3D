@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 16:12:15 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/24 20:10:52 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/25 11:48:01 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,6 @@
 # define RIGHT 124
 # define FORWARD 126
 # define BACKWARDS 125
-# define T1 18
-# define T2 19
-# define T3 20
-# define T4 21
-# define T5 23
-# define ORIGIN 50
 # define SPACE 49
 
 /*

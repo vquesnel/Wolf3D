@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/24 14:20:21 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/25 10:29:25 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/25 12:33:22 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	moove_forward(t_env *env)
 {
-	if (!searchinlist((int)(env->posx + env->dirx), (int)env->posy, env) &&
-			!searchinlist((int)env->posx, (int)(env->posy + env->diry), env))
+	if (!searchinlist((int)(env->posx + env->dirx * env->movespeed),
+				(int)env->posy, env) && !searchinlist((int)env->posx,
+					(int)(env->posy + env->diry * env->movespeed), env))
 	{
 		env->posx += env->dirx * env->movespeed;
 		env->posy += env->diry * env->movespeed;
@@ -26,11 +27,13 @@ void	moove_forward(t_env *env)
 
 void	moove_backwards(t_env *env)
 {
-	if (!searchinlist((int)(env->posx - env->dirx), (int)env->posy, env) &&
-			!searchinlist((int)env->posx, (int)(env->posy - env->diry), env))
+	printf("speed = %f\n", env->movespeed);
+	if (!searchinlist((int)(env->posx - env->dirx * env->movespeed),
+				(int)env->posy, env) && !searchinlist((int)env->posx,
+					(int)(env->posy - env->diry * env->movespeed), env))
 	{
-		env->posx -= env->dirx;
-		env->posy -= env->diry;
+		env->posx -= env->dirx * env->movespeed;
+		env->posy -= env->diry * env->movespeed;
 	}
 	else
 		ft_putstr("\a");

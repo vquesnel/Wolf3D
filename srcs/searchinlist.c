@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 15:34:51 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/24 20:15:01 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/25 11:59:56 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ int		searchinlist(int x, int y, t_env *env)
 	t_node	*tmp;
 
 	tmp = env->map;
-	while (tmp->y != y)
+	while (tmp)
+	{
+		if (tmp->y == y && tmp->x == x)
+			return (tmp->z);
 		tmp = tmp->next;
-	while (tmp->x != x)
-		tmp = tmp->next;
-	if (!tmp)
-		return (0);
-	else
-		return (tmp->z);
+	}
+	printf("erreur\n");
+	return (1);
 }
