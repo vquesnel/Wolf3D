@@ -6,23 +6,11 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 15:03:50 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/25 17:12:43 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/26 00:15:36 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf.h"
-
-t_env		*new_env(void)
-{
-	t_env	*env;
-
-	if (!(env = (t_env *)malloc(sizeof(t_env))))
-		return (NULL);
-	env->mlx = NULL;
-	env->win = NULL;
-	env->img = NULL;
-	return (env);
-}
 
 static void	check_pos(t_env *env)
 {
@@ -42,20 +30,25 @@ t_env		*init_env(int fd)
 {
 	t_env	*env;
 
-	if (!(env = new_env()))
+	if (!(env = (t_env *)malloc(sizeof(t_env))))
 		return (NULL);
 	env->map = get_map(fd, env);
 	env->posx = (double)env->x_max / 2;
 	env->posy = (double)env->y_max / 2;
 	check_pos(env);
-	env->win = mlx_new_window(env->mlx, X_SIZE, Y_SIZE, "WOLF3D");
+	if (!(env->mlx = mlx_init()))
+		return (NULL);
+	if(!(env->win = mlx_new_window(env->mlx, X_SIZE, Y_SIZE, "Wolf3D @42")))
+		return (NULL);
+	if(!(env->img = init_img(env)))
+		return (NULL);
 	env->x_max = 0;
 	env->y_max = 0;
-	env->dirx = 1;
+	env->dirx = -1;
 	env->diry = 0;
+	env->time = 0;
 	env->planex = 0;
 	env->planey = 0.66;
-	env->time = 0;
 	env->oldtime = env->time;
 	env->time = clock();
 	env->fps = (env->time - env->oldtime) / 1000.0;

@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/23 12:34:24 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/25 17:09:36 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/26 00:15:34 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static void	select_color(t_env *env)
 	if (env->drawstart < 0)
 		env->drawstart = 0;
 	if (env->drawend >= Y_SIZE)
-		env->drawend = Y_SIZE - 1;
+		env->drawend = Y_SIZE;
 	if (searchinlist(env->mapx, env->mapy, env) == 1)
 		env->color = 0xFF0000;
 	if (searchinlist(env->mapx, env->mapy, env) == 2)

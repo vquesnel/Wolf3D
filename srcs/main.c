@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/20 12:15:32 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/25 15:07:19 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/26 00:19:46 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ int		main(int ac, char **av)
 		ft_error("\033[31;1mUsage: ./wolf3d <map>\033[0m");
 	if ((fd = open(av[1], O_RDONLY)) < 0)
 		ft_error("\033[31;1mError when openning file.\033[0m");
-	env = init_env(fd);
+	if(!(env = init_env(fd)))
+		ft_error("\033[31;1mMalloc Error.\033[0m");
+	system("afplay musics/mario.mp3&");
 	close(fd);
 	expose(env);
 	return (0);
