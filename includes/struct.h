@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/20 12:14:33 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/25 12:33:43 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/25 17:12:26 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ typedef struct		s_img
 
 typedef struct		s_env
 {
-	char		*name;
 	void		*mlx;
 	void		*win;
 	t_node		*map;

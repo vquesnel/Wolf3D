@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/23 12:34:24 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/25 12:06:45 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/25 17:09:36 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	init_param(t_env *env, int x)
 	env->hit = 0;
 	env->stepx = (env->raydirx < 0) ? -1 : 1;
 	if (env->stepx == -1)
-		env->sidedistx = (env->rposx - (int)env->rposx) * env->deltx;
+		env->sidedistx = (env->rposx - env->mapx) * env->deltx;
 	else
 		env->sidedistx = (env->mapx + 1.0 - env->rposx) * env->deltx;
 	env->stepy = (env->raydiry < 0) ? -1 : 1;

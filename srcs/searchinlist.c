@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 15:34:51 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/25 11:59:56 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/25 17:09:51 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ int		searchinlist(int x, int y, t_env *env)
 			return (tmp->z);
 		tmp = tmp->next;
 	}
-	printf("erreur\n");
+	free(tmp);
 	return (1);
 }
