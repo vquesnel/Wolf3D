@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 15:24:14 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/24 16:33:28 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/25 10:18:24 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void			draw_vertical(int x, t_env *env)
 	{
 		while (env->drawstart <= env->drawend)
 		{
-			pixel_to_image(env,x, env->drawstart, env->color);
+			pixel_to_image(env, x, env->drawstart, env->color);
 			env->drawstart++;
 		}
 	}

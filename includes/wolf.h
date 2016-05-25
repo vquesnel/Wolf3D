@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/20 12:11:39 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/24 16:28:22 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/25 10:22:23 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_env	*init_env(int fd);
 t_img	*init_img(t_env *env);
 void	ray_cast(t_env *env);
 void	draw_vertical(int x, t_env *env);
-void		pixel_to_image(t_env *env, int x, int y, int color);
+void	pixel_to_image(t_env *env, int x, int y, int color);
 int		searchinlist(int x, int y, t_env *env);
 int		key_funct(int keycode, t_env *env);
 void	moove_forward(t_env *env);
