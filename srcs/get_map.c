@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/25 10:18:36 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/26 14:44:31 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/26 15:15:37 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static t_node	*convert_map(t_node *list, t_env *env, char *line)
 	map = ft_strsplit(line, ' ');
 	while (map[x])
 	{
-	if (!(elem = (t_node *)malloc(sizeof(t_node))))
+		if (!(elem = (t_node *)malloc(sizeof(t_node))))
 			return (NULL);
 		elem->x = x;
 		elem->y = y;

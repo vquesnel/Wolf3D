@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 15:34:51 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/26 13:27:47 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/26 15:15:22 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		searchinlist(int x, int y, t_env *env)
 
 	if (!(tmp = (t_node *)malloc(sizeof(t_node))))
 		ft_error("Malloc error");
-	tmp =env->map;
+	tmp = env->map;
 	while (tmp)
 	{
 		if (tmp->y == y && tmp->x == x)
