@@ -1,2 +1,0 @@
-ps ax | grep wolf3d
-leaks numero
