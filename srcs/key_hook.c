@@ -6,16 +6,17 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/24 14:29:30 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/26 00:20:59 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/26 11:05:20 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf.h"
 
-static int	close_win(t_env *e)
+static int	close_win(t_env *env)
 {
-	system("killall afplay");
-	free(e);
+	if (env->music)
+		system("killall afplay");
+	free(env);
 	exit(EXIT_SUCCESS);
 }
 
@@ -33,6 +34,8 @@ int			key_funct(int keycode, t_env *env)
 		rotate_left(env);
 	if (keycode == RIGHT)
 		rotate_right(env);
+	if (keycode == M1 || keycode == M2 || keycode == M3 || keycode == MUTE)
+		select_music(keycode, env);
 	expose(env);
 	return (0);
 }

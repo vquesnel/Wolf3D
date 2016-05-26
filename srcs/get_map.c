@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/25 10:18:36 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/25 16:38:20 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/26 12:15:48 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static t_node	*convert_map(t_node *list, t_env *env, char *line)
 	map = ft_strsplit(line, ' ');
 	while (map[x])
 	{
+		printf("map[x] == %p\n", (void *)map[x]);
 		elem = init_node();
 		elem->x = x;
 		elem->y = y;

@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 13:41:36 by vquesnel          #+#    #+#             */
-/*   Updated: 2015/12/17 13:41:47 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/26 12:42:53 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ char		**ft_strsplit(char const *s, char c)
 			i += j - 1;
 		}
 	}
+	free(tmp);
 	return (tab);
 }

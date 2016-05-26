@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 15:03:50 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/26 00:15:36 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/26 11:10:24 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,15 @@ static void	check_pos(t_env *env)
 		ft_error("\033[31;1mStarting point is too close to wall!\033[0m");
 }
 
+static void	init_win(t_env *env)
+{
+	env->mlx = mlx_init();
+	env->win = mlx_new_window(env->mlx, X_SIZE, Y_SIZE, "Wolf3D @42");
+	env->img = init_img(env);
+	if (!env->mlx || !env->win || !env->img)
+		ft_error("\033[31;1mError when creating the window.\033[0m");
+}
+
 t_env		*init_env(int fd)
 {
 	t_env	*env;
@@ -36,12 +45,7 @@ t_env		*init_env(int fd)
 	env->posx = (double)env->x_max / 2;
 	env->posy = (double)env->y_max / 2;
 	check_pos(env);
-	if (!(env->mlx = mlx_init()))
-		return (NULL);
-	if(!(env->win = mlx_new_window(env->mlx, X_SIZE, Y_SIZE, "Wolf3D @42")))
-		return (NULL);
-	if(!(env->img = init_img(env)))
-		return (NULL);
+	init_win(env);
 	env->x_max = 0;
 	env->y_max = 0;
 	env->dirx = -1;
@@ -54,5 +58,6 @@ t_env		*init_env(int fd)
 	env->fps = (env->time - env->oldtime) / 1000.0;
 	env->movespeed = env->fps * 0.003;
 	env->rotspeed = env->fps * 0.0005;
+	env->music = 0;
 	return (env);
 }

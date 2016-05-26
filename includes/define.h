@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 16:12:15 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/26 00:19:19 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/26 11:41:45 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@
 # define FORWARD 126
 # define BACKWARDS 125
 # define SPACE 49
+# define M1 18
+# define M2 19
+# define M3 20
+# define MUTE 46
 
 /*
 ** MOUSECODE

@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/20 12:14:33 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/25 23:21:03 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/26 11:02:41 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ typedef struct		s_env
 	int			color;
 	double		movespeed;
 	double		rotspeed;
+	int			music;
 	t_img		*img;
 }					t_env;
 

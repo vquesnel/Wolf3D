@@ -6,7 +6,7 @@
 #    By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/26 13:35:37 by vquesnel          #+#    #+#              #
-#    Updated: 2016/05/25 12:08:11 by vquesnel         ###   ########.fr        #
+#    Updated: 2016/05/26 12:06:29 by vquesnel         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCS= srcs/main.c srcs/get_map.c srcs/init_node.c srcs/init_env.c\
 OBJS= $(SRCS:.c=.o)
 INCLUDES= -I libft/includes -I includes -I mlx/
 LIBS= -L libft/ -lft -L mlx/ -lmlx -lm
-FLAGS= -O3 -Ofast -O2
+FLAGS= -O3 -Ofast -O2 -g
 FRAMEWORK= -framework AppKit -framework OpenGL
 
 $(NAME):	$(OBJS)

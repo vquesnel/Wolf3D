@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/20 12:11:39 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/25 23:59:51 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/26 11:08:22 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdio.h>
 # include <time.h>
 # include <math.h>
-# include </usr/X11R6/include/X11/X.h>
+
 t_node	*get_map(int fd, t_env *env);
 t_node	*init_node(void);
 t_node	*insert_node(t_node *node, t_node *elem);
@@ -37,6 +37,7 @@ void	rotate_right(t_env *env);
 void	moove_right(t_env *env);
 void	moove_left(t_env *env);
 void	rotate_left(t_env *env);
+void	select_music(int keycode, t_env *env);
 void	expose(t_env *env);
 
 #endif

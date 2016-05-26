@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/24 14:20:21 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/25 14:15:22 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/26 11:08:07 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,27 @@ void	rotate_left(t_env *env)
 		sin(env->rotspeed);
 	env->planey = oldplanex * sin(env->rotspeed) + env->planey *
 		cos(env->rotspeed);
+}
+
+void	select_music(int keycode, t_env *env)
+{
+	if (env->music)
+		system("killall afplay");
+	if (keycode == M1)
+	{
+		system("afplay musics/mario.mp3&");
+		env->music = 1;
+	}
+	if (keycode == M2)
+	{
+		system("afplay musics/song.mp3&");
+		env->music = 1;
+	}
+	if (keycode == M3)
+	{
+		system("afplay musics/tetris.mp3&");
+		env->music = 1;
+	}
+	if (keycode == MUTE)
+		env->music = 0;
 }
