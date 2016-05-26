@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/20 12:14:33 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/26 11:02:41 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/26 20:19:18 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,25 @@ typedef struct		s_node
 	int				z;
 	struct s_node	*next;
 }					t_node;
+
+typedef struct		s_texture
+{
+	int		bpp;
+	int		sizeline;
+	int		endian;
+	void	*text1;
+	int		*tab1;
+	void	*text2;
+	int		*tab2;
+	void	*text3;
+	int		*tab3;
+	void	*text4;
+	int		*tab4;
+	void	*textsol;
+	int		*sol;
+	void	*textroof;
+	int		*roof;
+}					t_texture;
 
 typedef struct		s_img
 {
@@ -67,9 +86,24 @@ typedef struct		s_env
 	int			drawend;
 	int			color;
 	double		movespeed;
-	double		rotspeed;
 	int			music;
+	double		wallx;
+	int			texx;
+	int			texy;
+	double		floorxwall;
+	double		floorywall;
+	double		currentfloorx;
+	double		currentfloory;
+	int			floortexx;
+	int			floortexy;
+	double		distwall;
+	double		distplayer;
+	int			*tab;
+	int			**buftext;
+	double		currentdist;
+	double		weight;
 	t_img		*img;
+	t_texture	*tex;
 }					t_env;
 
 #endif

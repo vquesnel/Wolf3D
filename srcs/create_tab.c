@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_clear_tab.c                                     :+:      :+:    :+:   */
+/*   create_tab.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/03/08 23:18:21 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/26 20:07:28 by vquesnel         ###   ########.fr       */
+/*   Created: 2016/05/26 19:31:56 by vquesnel          #+#    #+#             */
+/*   Updated: 2016/05/26 19:37:07 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "wolf.h"
 
-int		ft_clear_tab(void **tab)
+int		**create_tab(t_env *env)
 {
-	int	i;
+	int		**buftext;
+	int		i;
 
 	i = 0;
-	if (tab)
+	if (!(buftext = (int **)malloc(sizeof(int *) * (Y_SIZE + 1))))
+		return (NULL);
+	while (i < Y_SIZE)
 	{
-		while (tab[i])
-		{
-			free(tab[i]);
-			i++;
-		}
-		free(tab);
+		buftext[i] = &env->tab[i * X_SIZE];
+		i++;
 	}
-	return (1);
+	buftext[i] = NULL;
+	return (buftext);
 }

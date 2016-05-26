@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 15:03:50 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/26 15:01:50 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/26 20:19:11 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,9 @@ t_env		*init_env(int fd)
 	env->time = clock();
 	env->fps = (env->time - env->oldtime) / 1000.0;
 	env->movespeed = env->fps * 0.003;
-	env->rotspeed = env->fps * 0.0005;
 	env->music = 0;
+	env->tab = (int *)mlx_get_data_addr(env->img->img, &env->img->bpp, &env->img->sizeline, &env->img->endian);
+	env->buftext = create_tab(env);
+	env->tex = create_xpm(env);
 	return (env);
 }

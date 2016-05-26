@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/24 14:20:21 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/26 15:11:43 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/26 20:19:01 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,11 @@
 void	moove_forward(t_env *env)
 {
 	if (!searchinlist((int)(env->posx + env->dirx * env->movespeed),
-				(int)env->posy, env) && !searchinlist((int)env->posx,
-					(int)(env->posy + env->diry * env->movespeed), env))
-	{
+	(int)env->posy, env))
 		env->posx += env->dirx * env->movespeed;
+	if (!searchinlist((int)env->posx, (int)(env->posy +
+	env->diry * env->movespeed), env))
 		env->posy += env->diry * env->movespeed;
-	}
 	else
 		ft_putstr("\a");
 }
@@ -28,14 +27,29 @@ void	moove_forward(t_env *env)
 void	moove_backwards(t_env *env)
 {
 	if (!searchinlist((int)(env->posx - env->dirx * env->movespeed),
-				(int)env->posy, env) && !searchinlist((int)env->posx,
-					(int)(env->posy - env->diry * env->movespeed), env))
-	{
+	(int)env->posy, env))
 		env->posx -= env->dirx * env->movespeed;
+	if(!searchinlist((int)env->posx, (int)(env->posy -
+	env->diry * env->movespeed), env))
 		env->posy -= env->diry * env->movespeed;
-	}
 	else
 		ft_putstr("\a");
+}
+
+void	moove_left(t_env *env)
+{
+	if (!searchinlist((int)(env->posx - env->planex * env->movespeed), (int)(env->posy), env))
+		env->posx -= env->planex * env->movespeed;
+	if (!searchinlist((int)(env->posx), (int)(env->posy - env->planey * env->movespeed), env))
+		env->posy -= env->planey * env->movespeed;
+}
+
+void	moove_right(t_env *env)
+{
+		if (!searchinlist((int)(env->posx + env->planex * env->movespeed), (int)(env->posy), env))
+		env->posx += env->planex * env->movespeed;
+	if (!searchinlist((int)(env->posx), (int)(env->posy + env->planey * env->movespeed), env))
+		env->posy += env->planey * env->movespeed;
 }
 
 void	rotate_right(t_env *env)
@@ -45,14 +59,14 @@ void	rotate_right(t_env *env)
 
 	olddirx = env->dirx;
 	oldplanex = env->planex;
-	env->dirx = env->dirx * cos(-env->rotspeed) - env->diry *
-		sin(-env->rotspeed);
-	env->diry = olddirx * sin(-env->rotspeed) + env->diry *
-		cos(-env->rotspeed);
-	env->planex = env->planex * cos(-env->rotspeed) - env->planey *
-		sin(-env->rotspeed);
-	env->planey = oldplanex * sin(-env->rotspeed) + env->planey *
-		cos(-env->rotspeed);
+	env->dirx = env->dirx * cos(-0.1) - env->diry *
+		sin(-0.1);
+	env->diry = olddirx * sin(-0.1) + env->diry *
+		cos(-0.1);
+	env->planex = env->planex * cos(-0.1) - env->planey *
+		sin(-0.1);
+	env->planey = oldplanex * sin(-0.1) + env->planey *
+		cos(-0.1);
 }
 
 void	rotate_left(t_env *env)
@@ -62,14 +76,14 @@ void	rotate_left(t_env *env)
 
 	olddirx = env->dirx;
 	oldplanex = env->planex;
-	env->dirx = env->dirx * cos(env->rotspeed) - env->diry *
-		sin(env->rotspeed);
-	env->diry = olddirx * sin(env->rotspeed) + env->diry *
-		cos(env->rotspeed);
-	env->planex = env->planex * cos(env->rotspeed) - env->planey *
-		sin(env->rotspeed);
-	env->planey = oldplanex * sin(env->rotspeed) + env->planey *
-		cos(env->rotspeed);
+	env->dirx = env->dirx * cos(0.1) - env->diry *
+		sin(0.1);
+	env->diry = olddirx * sin(0.1) + env->diry *
+		cos(0.1);
+	env->planex = env->planex * cos(0.1) - env->planey *
+		sin(0.1);
+	env->planey = oldplanex * sin(0.1) + env->planey *
+		cos(0.1);
 }
 
 void	select_music(int keycode, t_env *env)

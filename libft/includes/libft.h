@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 17:29:04 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/26 14:22:50 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/26 20:07:47 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ char				*ft_strtrim(char const *s);
 char				**ft_strsplit(const char *s, char c);
 void				ft_swap(int *a, int *b);
 int					ft_abs(int c);
-int					ft_clear_tab(char **tab);
+int					ft_clear_tab(void **tab);
 char				*ft_strcpylimit(char *str, char n);
 char				*ft_strjoinfrees2(char *s1, char *s2);
 char				*ft_strnewzero(size_t size);

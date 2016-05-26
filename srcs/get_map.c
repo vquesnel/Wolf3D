@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/25 10:18:36 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/26 15:15:37 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/26 20:08:01 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static t_node	*convert_map(t_node *list, t_env *env, char *line)
 	y++;
 	env->x_max = x;
 	env->y_max = y;
-	ft_clear_tab(map);
+	ft_clear_tab((void **)map);
 	return (list);
 }
 

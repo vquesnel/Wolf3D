@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/24 14:29:30 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/26 15:11:53 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/26 20:13:51 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,35 @@ int			key_funct(int keycode, t_env *env)
 	if (keycode == BACKWARDS)
 		moove_backwards(env);
 	if (keycode == LEFT)
-		rotate_left(env);
+		moove_left(env);
 	if (keycode == RIGHT)
+		moove_right(env);
+	if (keycode == LROTATE)
+		rotate_left(env);
+	if (keycode == RROTATE)
 		rotate_right(env);
 	if (keycode == M1 || keycode == M2 || keycode == M3 || keycode == MUTE)
 		select_music(keycode, env);
 	expose(env);
 	return (0);
+}
+
+static void			empty_buftext(t_env *env)
+{
+	int x;
+	int y;
+
+	y = 0;
+	while (y < Y_SIZE)
+	{
+		x = 0;
+		while (x < X_SIZE)
+		{
+			env->buftext[y][x] = 0;
+			x++;
+		}
+		y++;
+	}
 }
 
 void		expose(t_env *env)
@@ -46,6 +68,7 @@ void		expose(t_env *env)
 		mlx_destroy_image(env->mlx, env->img->img);
 	if (!(env->img = init_img(env)))
 		ft_error("impossible to create image.");
+	empty_buftext(env);
 	ray_cast(env);
 	mlx_put_image_to_window(env->mlx, env->win, env->img->img, 0, 0);
 	mlx_hook(env->win, 2, 1, key_funct, env);

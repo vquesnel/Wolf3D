@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 16:12:15 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/26 11:41:45 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/26 18:26:13 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 # define ESC 53
 # define LEFT 123
 # define RIGHT 124
+# define LROTATE 0
+# define RROTATE 2
 # define FORWARD 126
 # define BACKWARDS 125
 # define SPACE 49
