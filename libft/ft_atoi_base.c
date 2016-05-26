@@ -6,13 +6,13 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/08 16:06:17 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/02 13:29:06 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/26 12:50:17 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		hexa_to_int(char c)
+static int		hexa_to_int(char c)
 {
 	if (c > 47 && c < 59)
 		return (c - 48);
@@ -23,7 +23,7 @@ int		hexa_to_int(char c)
 	return (-1);
 }
 
-int		max_power(char *str, int base)
+static int		max_power(char *str, int base)
 {
 	int		n;
 	int		result;
@@ -40,7 +40,7 @@ int		max_power(char *str, int base)
 	return (result);
 }
 
-int		ft_atoi_base(char *str, int base)
+int				ft_atoi_base(char *str, int base)
 {
 	int		i;
 	int		power;

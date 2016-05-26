@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 17:29:04 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/02 13:29:37 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/26 14:22:50 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <sys/uio.h>
 # include <fcntl.h>
 # include <sys/types.h>
-# define BUFF_SIZE 24
+# define BUFF_SIZE 1000
 # define EOL '\n'
 
 typedef struct		s_line
@@ -62,7 +62,7 @@ void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t len);
 void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
-void				print_memory(const void *addr, size_t size);
+void				ft_print_memory(const void *addr, size_t size);
 
 /*
 ** STRING HANDLING
@@ -137,6 +137,6 @@ void				ft_putendl(char const *str);
 void				ft_putendl_fd(char const *str, int fd);
 void				ft_putnbr(int n);
 void				ft_putnbr_fd(int n, int fd);
-void				print_hex(int nb);
+void				ft_print_hex(int nb);
 
 #endif

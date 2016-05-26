@@ -6,13 +6,13 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 11:14:33 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/22 12:24:50 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/26 12:55:42 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		power(int nb)
+static int		power(int nb)
 {
 	int		power;
 
@@ -24,7 +24,7 @@ int		power(int nb)
 	return (power);
 }
 
-void	print_hex(int nb)
+void			ft_print_hex(int nb)
 {
 	int		pwr;
 	int		index;

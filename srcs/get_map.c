@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/25 10:18:36 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/26 12:15:48 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/26 14:44:31 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,25 @@ static t_node	*convert_map(t_node *list, t_env *env, char *line)
 	map = ft_strsplit(line, ' ');
 	while (map[x])
 	{
-		printf("map[x] == %p\n", (void *)map[x]);
-		elem = init_node();
+	if (!(elem = (t_node *)malloc(sizeof(t_node))))
+			return (NULL);
 		elem->x = x;
 		elem->y = y;
 		elem->z = ft_atoi(map[x]);
+		elem->next = NULL;
 		list = insert_node(list, elem);
 		x++;
 	}
 	y++;
 	env->x_max = x;
 	env->y_max = y;
+	ft_clear_tab(map);
 	return (list);
 }
 
 static void		check_line(char *line)
 {
-	long	i;
+	int	i;
 
 	i = 0;
 	if (line[0] == '0' || line[ft_strlen(line) - 1] == '0')
@@ -55,7 +57,7 @@ static void		check_line(char *line)
 
 static void		check_border(char *line)
 {
-	long	i;
+	int	i;
 
 	i = 0;
 	while (line[i])
@@ -71,7 +73,7 @@ t_node			*get_map(int fd, t_env *env)
 {
 	char		*line;
 	t_node		*new;
-	static int	x;
+	int			x;
 
 	new = NULL;
 	if (get_next_line(fd, &line))
@@ -79,6 +81,7 @@ t_node			*get_map(int fd, t_env *env)
 		check_border(line);
 		x = ft_tablen(ft_strsplit(line, ' '));
 		new = convert_map(new, env, line);
+		free(line);
 	}
 	else
 		ft_error("\033[31;1mError when reading the file.\033[0m");
@@ -90,5 +93,6 @@ t_node			*get_map(int fd, t_env *env)
 		new = convert_map(new, env, line);
 	}
 	check_border(line);
+	free(line);
 	return (new);
 }

@@ -6,13 +6,13 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 22:45:23 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/22 12:59:50 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/26 12:48:47 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		int_len(int nb, int base)
+static int		int_len(int nb, int base)
 {
 	int i;
 
@@ -32,7 +32,7 @@ int		int_len(int nb, int base)
 	return (i);
 }
 
-long	max_power(long nb, int base)
+static long		max_power(long nb, int base)
 {
 	long max;
 
@@ -44,7 +44,7 @@ long	max_power(long nb, int base)
 	return (max);
 }
 
-char	*ft_itoa_base(int value, int base)
+char			*ft_itoa_base(int value, int base)
 {
 	long			max;
 	static char		hex[16] = "0123456789ABCDEF";

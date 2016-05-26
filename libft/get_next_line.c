@@ -6,13 +6,13 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/13 21:17:10 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/14 16:07:28 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/26 12:49:38 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_line		*init_list(const int fd)
+static t_line		*init_list(const int fd)
 {
 	t_line	*new;
 
@@ -24,7 +24,7 @@ t_line		*init_list(const int fd)
 	return (new);
 }
 
-void		add_elem(t_line *list, t_line *new)
+static void			add_elem(t_line *list, t_line *new)
 {
 	while (list)
 	{
@@ -37,7 +37,7 @@ void		add_elem(t_line *list, t_line *new)
 	}
 }
 
-int			read_file(int fd, t_line *list)
+static int			read_file(int fd, t_line *list)
 {
 	int		ret;
 	char	buf[BUFF_SIZE + 1];
@@ -63,7 +63,7 @@ int			read_file(int fd, t_line *list)
 	return (ret);
 }
 
-char		*get_line(t_line *list, char **line)
+static char			*get_line(t_line *list, char **line)
 {
 	char	*tmp;
 	char	*text;
@@ -90,7 +90,7 @@ char		*get_line(t_line *list, char **line)
 	return (text);
 }
 
-int			get_next_line(int const fd, char **line)
+int					get_next_line(int const fd, char **line)
 {
 	static	t_line		*file;
 	int					ret;
