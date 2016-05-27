@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/20 12:14:33 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/26 20:19:18 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/27 12:17:15 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ typedef struct		s_env
 	int			lineheight;
 	int			drawstart;
 	int			drawend;
-	int			color;
 	double		movespeed;
 	int			music;
 	double		wallx;

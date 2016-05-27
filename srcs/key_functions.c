@@ -6,51 +6,11 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/24 14:20:21 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/26 20:19:01 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/27 12:14:05 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf.h"
-
-void	moove_forward(t_env *env)
-{
-	if (!searchinlist((int)(env->posx + env->dirx * env->movespeed),
-	(int)env->posy, env))
-		env->posx += env->dirx * env->movespeed;
-	if (!searchinlist((int)env->posx, (int)(env->posy +
-	env->diry * env->movespeed), env))
-		env->posy += env->diry * env->movespeed;
-	else
-		ft_putstr("\a");
-}
-
-void	moove_backwards(t_env *env)
-{
-	if (!searchinlist((int)(env->posx - env->dirx * env->movespeed),
-	(int)env->posy, env))
-		env->posx -= env->dirx * env->movespeed;
-	if(!searchinlist((int)env->posx, (int)(env->posy -
-	env->diry * env->movespeed), env))
-		env->posy -= env->diry * env->movespeed;
-	else
-		ft_putstr("\a");
-}
-
-void	moove_left(t_env *env)
-{
-	if (!searchinlist((int)(env->posx - env->planex * env->movespeed), (int)(env->posy), env))
-		env->posx -= env->planex * env->movespeed;
-	if (!searchinlist((int)(env->posx), (int)(env->posy - env->planey * env->movespeed), env))
-		env->posy -= env->planey * env->movespeed;
-}
-
-void	moove_right(t_env *env)
-{
-		if (!searchinlist((int)(env->posx + env->planex * env->movespeed), (int)(env->posy), env))
-		env->posx += env->planex * env->movespeed;
-	if (!searchinlist((int)(env->posx), (int)(env->posy + env->planey * env->movespeed), env))
-		env->posy += env->planey * env->movespeed;
-}
 
 void	rotate_right(t_env *env)
 {

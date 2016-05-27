@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/20 12:11:39 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/26 19:55:16 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/27 12:38:45 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,8 @@ void		select_music(int keycode, t_env *env);
 void		expose(t_env *env);
 int			**create_tab(t_env *env);
 t_texture	*create_xpm(t_env *env);
+void		init_param(t_env *env, int x);
+void		check_wall(t_env *env);
+void		select_color(t_env *env);
 
 #endif
