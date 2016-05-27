@@ -6,27 +6,11 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 15:03:50 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/27 12:18:13 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/27 16:07:50 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wolf.h"
-
-static void	check_pos(t_env *env)
-{
-	env->posx = (double)env->x_max / 2;
-	env->posy = (double)env->y_max / 2;
-	if (searchinlist(env->posx, env->posy, env))
-		ft_error("\033[31;1mStarting point is a wall!\033[0m");
-	else if (searchinlist(env->posx + 1, env->posy, env))
-		ft_error("\033[31;1mStarting point is too close to wall!\033[0m");
-	else if (searchinlist(env->posx - 1, env->posy, env))
-		ft_error("\033[31;1mStarting point is too close to wall!\033[0m");
-	else if (searchinlist(env->posx, env->posy + 1, env))
-		ft_error("\033[31;1mStarting point is too close to wall!\033[0m");
-	else if (searchinlist(env->posx, env->posy - 1, env))
-		ft_error("\033[31;1mStarting point is too close to wall!\033[0m");
-}
 
 static void	init_win(t_env *env)
 {
@@ -37,14 +21,14 @@ static void	init_win(t_env *env)
 		ft_error("\033[31;1mError when creating the window.\033[0m");
 }
 
-t_env		*init_env(int fd)
+t_env		*init_env(void)
 {
 	t_env	*env;
 
 	if (!(env = (t_env *)malloc(sizeof(t_env))))
 		return (NULL);
-	env->map = get_map(fd, env);
-	check_pos(env);
+	env->posx = 3;
+	env->posy = 5;
 	init_win(env);
 	env->x_max = 0;
 	env->y_max = 0;
@@ -53,6 +37,7 @@ t_env		*init_env(int fd)
 	env->time = 0;
 	env->planex = 0;
 	env->planey = 0.66;
+	env->color = 0.0;
 	env->oldtime = env->time;
 	env->time = clock();
 	env->fps = (env->time - env->oldtime) / 1000.0;

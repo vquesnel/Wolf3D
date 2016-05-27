@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/20 12:11:39 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/27 12:38:45 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/27 15:03:49 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,10 @@
 # include <time.h>
 # include <math.h>
 
-t_node		*get_map(int fd, t_env *env);
-t_node		*insert_node(t_node *node, t_node *elem);
-t_env		*init_env(int fd);
+t_env		*init_env(void);
 t_img		*init_img(t_env *env);
 void		ray_cast(t_env *env);
-void		draw_vertical(int x, t_env *env);
 void		pixel_to_image(t_env *env, int x, int y, int color);
-int			searchinlist(int x, int y, t_env *env);
 int			key_funct(int keycode, t_env *env);
 void		moove_forward(t_env *env);
 void		moove_left(t_env *env);
@@ -43,5 +39,6 @@ t_texture	*create_xpm(t_env *env);
 void		init_param(t_env *env, int x);
 void		check_wall(t_env *env);
 void		select_color(t_env *env);
+int			check_map(int x, int y);
 
 #endif

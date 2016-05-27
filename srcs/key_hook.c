@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/24 14:29:30 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/27 13:29:42 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/27 16:05:26 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,8 @@ void		expose(t_env *env)
 {
 	if (env->img->img)
 		mlx_destroy_image(env->mlx, env->img->img);
-	if (!(env->img = init_img(env)))
-		ft_error("impossible to create image.");
+	env->img = init_img(env);
 	empty_buftext(env);
-	env->buftext = create_tab(env);
 	ray_cast(env);
 	mlx_put_image_to_window(env->mlx, env->win, env->img->img, 0, 0);
 	mlx_hook(env->win, 2, 1, key_funct, env);

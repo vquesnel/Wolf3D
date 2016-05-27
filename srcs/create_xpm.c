@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/26 19:43:03 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/27 13:46:35 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/27 13:50:11 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ static void	xpm_to_image(t_texture *tex, t_env *env)
 			&width, &height);
 	tex->text3 = mlx_xpm_file_to_image(env->mlx, "./textures/wall7.xpm",
 			&width, &height);
-	tex->text4 = mlx_xpm_file_to_image(env->mlx, "./textures/unnamed.xpm", &width,
-			&height);
+	tex->text4 = mlx_xpm_file_to_image(env->mlx, "./textures/unnamed.xpm",
+			&width, &height);
 	tex->textsol = mlx_xpm_file_to_image(env->mlx, "./textures/sable.xpm",
 			&width, &height);
 	tex->textroof = mlx_xpm_file_to_image(env->mlx, "./textures/arcenciel.xpm",

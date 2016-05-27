@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/23 12:34:24 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/27 13:24:21 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/27 16:08:34 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@ static void	check_color(int x, int y, int color, t_env *env)
 	while (y < env->drawend)
 	{
 		env->texy = (y * 2 - Y_SIZE + env->lineheight) * 32 / env->lineheight;
-		if (searchinlist(env->mapx, env->mapy, env) == 1)
-			color = env->tex->tab1[64 * env->texy + env->texx];
-		else if (searchinlist(env->mapx, env->mapy, env) == 2)
-			color = env->tex->tab2[64 * env->texy + env->texx];
-		else if (searchinlist(env->mapx, env->mapy, env) == 3)
-			color = env->tex->tab3[64 * env->texy + env->texx];
-		else if (searchinlist(env->mapx, env->mapy, env) == 4)
-			color = env->tex->tab4[64 * env->texy + env->texx];
-		env->buftext[y][x] = color;
+		if (check_map(env->mapx, env->mapy) == 1)
+			env->color = env->tex->tab1[64 * env->texy + env->texx];
+		else if (check_map(env->mapx, env->mapy) == 2)
+			env->color = env->tex->tab2[64 * env->texy + env->texx];
+		else if (check_map(env->mapx, env->mapy) == 3)
+			env->color = env->tex->tab3[64 * env->texy + env->texx];
+		else if (check_map(env->mapx, env->mapy) == 4)
+			env->color = env->tex->tab4[64 * env->texy + env->texx];
+		env->buftext[y][x] = env->color;
 		y++;
 	}
 }
@@ -85,10 +85,8 @@ static void	text_floor(int x, t_env *env)
 void		ray_cast(t_env *env)
 {
 	int		x;
-	double	color;
 
 	x = 0;
-	color = 0;
 	while (x < X_SIZE)
 	{
 		init_param(env, x);
@@ -100,7 +98,7 @@ void		ray_cast(t_env *env)
 			env->perpwalldist = (env->mapy - env->rposy + (1 - env->stepy) / 2)
 				/ env->raydiry;
 		select_color(env);
-		check_color(x, env->drawstart, color, env);
+		check_color(x, env->drawstart, env->color, env);
 		init_floor(env);
 		text_floor(x, env);
 		x++;

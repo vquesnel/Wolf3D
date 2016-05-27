@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/27 12:36:07 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/27 12:38:37 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/27 14:35:34 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	check_wall(t_env *env)
 			env->mapy += env->stepy;
 			env->side = 1;
 		}
-		if (searchinlist(env->mapx, env->mapy, env) > 0)
+		if (check_map(env->mapx, env->mapy) > 0)
 			env->hit = 1;
 	}
 }
