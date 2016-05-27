@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/26 19:43:03 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/27 13:50:11 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/27 16:52:51 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,17 @@ static void	xpm_to_image(t_texture *tex, t_env *env)
 	int			width;
 	int			height;
 
-	tex->text1 = mlx_xpm_file_to_image(env->mlx, "./textures/wall.xpm",
+	tex->text1 = mlx_xpm_file_to_image(env->mlx, "./textures/wall1.xpm",
 			&width, &height);
-	tex->text2 = mlx_xpm_file_to_image(env->mlx, "./textures/wall_tag.xpm",
+	tex->text2 = mlx_xpm_file_to_image(env->mlx, "./textures/wall2.xpm",
 			&width, &height);
-	tex->text3 = mlx_xpm_file_to_image(env->mlx, "./textures/wall7.xpm",
+	tex->text3 = mlx_xpm_file_to_image(env->mlx, "./textures/wall3.xpm",
 			&width, &height);
-	tex->text4 = mlx_xpm_file_to_image(env->mlx, "./textures/unnamed.xpm",
+	tex->text4 = mlx_xpm_file_to_image(env->mlx, "./textures/wall4.xpm",
 			&width, &height);
-	tex->textsol = mlx_xpm_file_to_image(env->mlx, "./textures/sable.xpm",
+	tex->textsol = mlx_xpm_file_to_image(env->mlx, "./textures/floor.xpm",
 			&width, &height);
-	tex->textroof = mlx_xpm_file_to_image(env->mlx, "./textures/arcenciel.xpm",
+	tex->textroof = mlx_xpm_file_to_image(env->mlx, "./textures/roof.xpm",
 			&width, &height);
 	if (!tex->text1 || !tex->text2 || !tex->text3 || !tex->text4 ||
 			!tex->textsol || !tex->textroof)
