@@ -6,15 +6,15 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 16:12:15 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/27 18:02:24 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/28 01:00:10 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DEFINE_H
 # define DEFINE_H
 
-# define X_SIZE 1920
-# define Y_SIZE 1080
+# define X_SIZE 800
+# define Y_SIZE 800
 
 /*
 ** KEYCODE
