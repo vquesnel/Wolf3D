@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/24 14:29:30 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/27 16:05:26 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/27 17:05:49 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,6 @@ static void	empty_buftext(t_env *env)
 
 void		expose(t_env *env)
 {
-	if (env->img->img)
-		mlx_destroy_image(env->mlx, env->img->img);
-	env->img = init_img(env);
 	empty_buftext(env);
 	ray_cast(env);
 	mlx_put_image_to_window(env->mlx, env->win, env->img->img, 0, 0);
