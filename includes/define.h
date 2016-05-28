@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 16:12:15 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/28 01:00:10 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/28 11:44:49 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,5 @@
 # define M2 19
 # define M3 20
 # define MUTE 46
-
-/*
-** MOUSECODE
-*/
-
-# define LEFTCLICK 1
-# define ZOOMIN 4
-# define ZOOMOUT 5
 
 #endif

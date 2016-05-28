@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/24 14:29:30 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/28 00:06:47 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/28 11:46:10 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int			key_funct(int keycode, t_env *env)
 		rotate_right(env);
 	if (keycode == M1 || keycode == M2 || keycode == M3 || keycode == MUTE)
 		select_music(keycode, env);
+	if (keycode == SPACE)
+		reset(env);
 	expose(env);
 	return (0);
 }

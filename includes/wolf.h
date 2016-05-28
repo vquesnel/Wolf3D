@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/20 12:11:39 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/28 00:00:01 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/28 11:46:49 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ void		check_wall(t_env *env);
 void		select_color(t_env *env);
 int			check_map(int x, int y);
 void		menu(t_env *env);
+void		reset(t_env *env);
 
 #endif
