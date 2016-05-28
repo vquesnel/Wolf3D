@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/23 12:34:24 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/27 16:08:34 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/28 13:48:39 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ static void	check_color(int x, int y, int color, t_env *env)
 			env->color = env->tex->tab3[64 * env->texy + env->texx];
 		else if (check_map(env->mapx, env->mapy) == 4)
 			env->color = env->tex->tab4[64 * env->texy + env->texx];
+		else if (check_map(env->mapx, env->mapy) == 5)
+			env->color = env->tex->tab5[64 * env->texy + env->texx];
+		else if (check_map(env->mapx, env->mapy) == 6)
+			env->color = env->tex->tab6[64 * env->texy + env->texx];
+		else if (check_map(env->mapx, env->mapy) == 7)
+			env->color = env->tex->tab7[64 * env->texy + env->texx];
 		env->buftext[y][x] = env->color;
 		y++;
 	}
@@ -82,11 +88,12 @@ static void	text_floor(int x, t_env *env)
 	}
 }
 
-void		ray_cast(t_env *env)
+int			ray_cast(t_env *env)
 {
 	int		x;
 
 	x = 0;
+	mlx_clear_window(env->mlx, env->win);
 	while (x < X_SIZE)
 	{
 		init_param(env, x);
@@ -103,4 +110,7 @@ void		ray_cast(t_env *env)
 		text_floor(x, env);
 		x++;
 	}
+	menu(env);
+	mlx_put_image_to_window(env->mlx, env->win, env->img->img, 0, 0);
+	return (0);
 }

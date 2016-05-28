@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/03 16:12:15 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/28 11:44:49 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/28 13:47:18 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # define X_SIZE 800
 # define Y_SIZE 800
-
+# define MLXGDATA(x, y, z, a) mlx_get_data_addr(x, y, z, a)
 /*
 ** KEYCODE
 */

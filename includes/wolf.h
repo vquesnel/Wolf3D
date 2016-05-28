@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/20 12:11:39 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/28 11:46:49 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/28 13:48:49 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 
 t_env		*init_env(void);
 t_img		*init_img(t_env *env);
-void		ray_cast(t_env *env);
+int			ray_cast(t_env *env);
 void		pixel_to_image(t_env *env, int x, int y, int color);
 int			key_funct(int keycode, t_env *env);
 void		moove_forward(t_env *env);

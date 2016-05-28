@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/24 14:29:30 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/28 11:46:10 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/28 13:41:34 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,8 @@ static void	empty_buftext(t_env *env)
 void		expose(t_env *env)
 {
 	empty_buftext(env);
-	mlx_clear_window(env->mlx, env->win);
-	menu(env);
-	ray_cast(env);
-	mlx_put_image_to_window(env->mlx, env->win, env->img->img, 0, 0);
 	mlx_hook(env->win, 2, 1, key_funct, env);
 	mlx_hook(env->win, 17, 1L << 17, close_win, env);
+	mlx_loop_hook(env->mlx, ray_cast, env);
 	mlx_loop(env->mlx);
 }

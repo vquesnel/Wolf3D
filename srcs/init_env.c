@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/26 15:03:50 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/28 00:53:50 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/28 12:26:23 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	init_win(t_env *env)
 {
 	env->mlx = mlx_init();
-	env->win = mlx_new_window(env->mlx, X_SIZE + 200 , Y_SIZE, "Wolf3D @42");
+	env->win = mlx_new_window(env->mlx, X_SIZE + 200, Y_SIZE, "Wolf3D @42");
 	env->img = init_img(env);
 	if (!env->mlx || !env->win || !env->img)
 		ft_error("\033[31;1mError when creating the window.\033[0m");

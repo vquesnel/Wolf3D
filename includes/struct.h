@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/20 12:14:33 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/27 16:06:59 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/28 13:44:29 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ typedef struct		s_node
 typedef struct		s_texture
 {
 	int		bpp;
-	int		sizeline;
-	int		endian;
+	int		sl;
+	int		ed;
 	void	*text1;
 	int		*tab1;
 	void	*text2;
@@ -34,6 +34,12 @@ typedef struct		s_texture
 	int		*tab3;
 	void	*text4;
 	int		*tab4;
+	void	*text5;
+	int		*tab5;
+	void	*text6;
+	int		*tab6;
+	void	*text7;
+	int		*tab7;
 	void	*textsol;
 	int		*sol;
 	void	*textroof;
