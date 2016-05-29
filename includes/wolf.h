@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/20 12:11:39 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/28 13:48:49 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/29 18:41:35 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include "libft.h"
 # include "struct.h"
 # include "define.h"
-# include <stdio.h>
 # include <time.h>
 # include <math.h>
 

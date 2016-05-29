@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/20 12:14:33 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/28 13:44:29 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/29 18:36:29 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ typedef struct		s_env
 	double		currentdist;
 	double		weight;
 	double		color;
+	int			menu;
 	t_img		*img;
 	t_texture	*tex;
 }					t_env;

@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/23 12:34:24 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/28 13:48:39 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/29 18:42:26 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,6 @@ int			ray_cast(t_env *env)
 	int		x;
 
 	x = 0;
-	mlx_clear_window(env->mlx, env->win);
 	while (x < X_SIZE)
 	{
 		init_param(env, x);
@@ -110,7 +109,9 @@ int			ray_cast(t_env *env)
 		text_floor(x, env);
 		x++;
 	}
-	menu(env);
+	if (!env->menu)
+		menu(env);
+	env->menu = 1;
 	mlx_put_image_to_window(env->mlx, env->win, env->img->img, 0, 0);
 	return (0);
 }
