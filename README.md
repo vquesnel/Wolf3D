@@ -1,6 +1,6 @@
 # Wolf3D
 
-School's Projet to introduce the raycasting\n
+School's Projet to introduce the raycasting
 Final grade : 125/100
 
 # Launch
