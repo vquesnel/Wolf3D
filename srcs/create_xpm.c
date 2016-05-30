@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/26 19:43:03 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/28 13:48:16 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/30 11:26:07 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	xpm_to_image(t_texture *tex, t_env *env)
 			&width, &height);
 	tex->textsol = mlx_xpm_file_to_image(env->mlx, "./textures/floor.xpm",
 			&width, &height);
-	tex->textroof = mlx_xpm_file_to_image(env->mlx, "./textures/roof.xpm",
+	tex->textroof = mlx_xpm_file_to_image(env->mlx, "./textures/neon.xpm",
 			&width, &height);
 	if (!tex->text1 || !tex->text2 || !tex->text3 || !tex->text4 || !tex->text7
 			|| !tex->text5 || !tex->text6 || !tex->textsol || !tex->textroof)
