@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/17 13:49:02 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/30 09:52:02 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/28 14:04:57 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	commands(t_env *env)
 	mlx_string_put(env->mlx, env->win, 815, 190, 0x165AA4, "Mute     :    m ");
 	mlx_string_put(env->mlx, env->win, 815, 230, 0x165AA4, "Musics   : 1 to 3");
 	mlx_string_put(env->mlx, env->win, 815, 270, 0x165AA4, "Quit     :   esc ");
-	mlx_string_put(env->mlx, env->win, 815, 310, 0x165AA4, "Reset    :  space ");
+	mlx_string_put(env->mlx, env->win, 815, 310, 0x165AA4, "Reset     :   r ");
 	mlx_string_put(env->mlx, env->win, 813, 620, 0xC1500D, " CURRENT SETTINGS");
 	mlx_string_put(env->mlx, env->win, 810, 670, 0x165AA4, "Current x :");
 	mlx_string_put(env->mlx, env->win, 930, 670, 0x165AA4, posx);
