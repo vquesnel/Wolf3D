@@ -1,7 +1,7 @@
 # Wolf3D
 
-School's Projet to introduce the raycasting
-Final grade = 125/100
+School's Projet to introduce the raycasting\n
+Final grade : 125/100
 
 # Launch
 
