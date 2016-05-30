@@ -12,9 +12,7 @@
 
 NAME= wolf3d
 
-SRCS= srcs/main.c srcs/init_env.c srcs/init_img.c srcs/init_raycasting.c \
-	 srcs/ray_casting.c srcs/key_hook.c srcs/key_functions.c srcs/create_xpm.c\
-	 srcs/create_tab.c srcs/key_functions2.c srcs/create_map.c srcs/menu.c
+SRCS= $(shell find ./srcs -name '*.c' -type f)
 
 OBJS= $(SRCS:.c=.o)
 INCLUDES= -I libft/includes -I includes -I mlx/
