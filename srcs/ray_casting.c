@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/23 12:34:24 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/28 14:11:22 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/06/03 13:08:39 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,8 +109,6 @@ int			ray_cast(t_env *env)
 		text_floor(x, env);
 		x++;
 	}
-	mlx_clear_window(env->mlx, env->win);
-	menu(env);
 	mlx_put_image_to_window(env->mlx, env->win, env->img->img, 0, 0);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/20 12:11:39 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/28 14:03:47 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/06/03 13:08:01 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void		rotate_right(t_env *env);
 void		rotate_left(t_env *env);
 void		select_music(int keycode, t_env *env);
 void		expose(t_env *env);
-void		menu(t_env *env);
+void		commands(void);
 void		reset(t_env *env);
 
 #endif

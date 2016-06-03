@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/20 12:15:32 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/05/27 15:03:06 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/06/03 13:09:00 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int		main(int ac, char **av)
 		ft_error("\033[31;1mUsage: ./wolf3d \033[0m");
 	if (!(env = init_env()))
 		ft_error("\033[31;1mMalloc Error.\033[0m");
+	commands();
 	expose(env);
 	return (0);
 }
